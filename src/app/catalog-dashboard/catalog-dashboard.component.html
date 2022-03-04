@@ -1,0 +1,336 @@
+<nav class="navbar-top">
+  Model Catalogue DashBoard
+</nav>
+<div class="row" id="container-bg">
+  <div class="col-sm-2" routerLink="/">
+    <ul class="nav nav-tabs" id="myTab3" role="tablist">
+      <li class="nav-item" routerLink="/">
+        <a class="nav-link" id="home-vertical-tab" data-toggle="tab" href="#home-vertical" role="tab"
+          aria-controls="home" aria-selected="true">
+          <img class="card-img-left" src="../../assets/screenOneImg/report.png" alt="Card image cap">
+          <p class="card-text-left">Report Generation</p>
+        </a>
+      </li>
+      <li class="nav-item" routerLink="/screen2"> <a class="nav-link" id="home-vertical-tab" data-toggle="tab"
+          href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">
+          <img class="card-img-left" src="../../assets/screenOneImg/Metrics.png" alt="Card image cap">
+          <p class="card-text-left">Metrics and Tools Glossary</p>
+        </a>
+      </li>
+      <li class="nav-item" routerLink="/screen3"> <a class="nav-link" id="home-vertical-tab" data-toggle="tab"
+          href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">
+          <img class="card-img-left" src="../../assets/screenOneImg/Risk.png" alt="Card image cap">
+          <p class="card-text-left">Risk Assessment</p>
+        </a>
+      </li>
+      <li class="nav-item" routerLink="/screen4"> <a class="nav-link active" id="home-vertical-tab" data-toggle="tab"
+          href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">
+          <img class="card-img-left" src="../../assets/screenOneImg/mdcs.png" alt="Card image cap">
+          <p class="card-text-left">Catalogue DashBoard</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="row container d-flex nav-width">
+    <div class="col">
+      <div class="mb-3">
+        <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+          <li class="nav-item"><a class="nav-link active" id="dataFact-tab" data-toggle="tab" href="#dataFact2"
+              role="tab" aria-controls="dataFact" aria-selected="true" (click)="tabsData('factsAboutData')">Facts about
+              Data</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" id="trainedFact-tab" data-toggle="tab" href="#trainedFact2"
+              role="tab" aria-controls="trainedFact" aria-selected="false"
+              (click)="tabsData('factsAboutTrainedData')">Facts about
+              trained Model(s)</a></li>
+          <li class="nav-item"><a class="nav-link" id="ethicalEffect-tab" data-toggle="tab" href="#ethicalEffect2"
+              role="tab" aria-controls="contact" aria-selected="false" (click)="tabsData('ethicalEffects')">Ethical
+              Effects</a></li>
+          <li class="nav-item"><a class="nav-link" id="ethicalImpact-tab" data-toggle="tab" href="#ethicalImpact2"
+              role="tab" aria-controls="contact" aria-selected="false" (click)="tabsData('ethicalImpact')">Ethical
+              Impact</a></li>
+          <li class="nav-item"><a class="nav-link" id="recommendation-tab" data-toggle="tab" href="#recommendation2"
+              role="tab" aria-controls="contact" aria-selected="false"
+              (click)="tabsData('recommendation')">Recommendation</a>
+          </li>
+        </ul>
+      </div>
+
+      <form [formGroup]="myForm" enctype="multipart/form-data">
+        <div class="tab-content">
+          <div *ngIf="status === 'factsAboutData'">
+            <div class="tab-pane fade show active" id="dataFact2" role="tabpanel" aria-labelledby="dataFact-tab">
+              <div class="container-fluid container-bg">
+                <h3>Facts About Data</h3>
+                <div class="row" style="padding-left: 15px; padding-right: 15px;">
+                  <div class="form-group col-sm-4 fullHeight border border-light" id="card-bg">
+                    <h5>Data description</h5>
+                    <textarea type="text" id="overflow" required maxlength="1500" formControlName="dataDescription"
+                      placeholder="write something.." style="height: 480px"></textarea>
+                  </div>
+                  <div class="col">
+                    <div class="row" id="card-height1">
+                      <div class="col-7 border" id="card-bg">
+                        <h5>Possible discrimination</h5>
+                        <textarea type="text" id="overflow" style="height: 230px;"
+                          formControlName="possibleDiscrimination" required maxlength="1500"
+                          placeholder="write something..">
+                        </textarea>
+                      </div>
+                      <div class="col-5 border" id="card-bg">
+                        <h5>Intended Use</h5>
+                        <textarea type="text" id="overflow" style=" height: 230px;" formControlName="intendedUse"
+                          required maxlength="1500" placeholder="write something..">
+                        </textarea>
+                      </div>
+                    </div>
+                    <div class="row card-height">
+                      <div class="col-5 border" id="card-bg">
+                        <h5>Training data</h5>
+                        <textarea type="text" id="overflow" style="height: 180px;" formControlName="trainingData"
+                          required maxlength="1500" placeholder="write something..">
+                        </textarea>
+                      </div>
+                      <div class="col-7 border" id="card-bg">
+                        <h5>Evaluation data</h5>
+                        <textarea id="overflow" required maxlength="1500" style="height: 180px;"
+                          formControlName="evaluationData" placeholder="write something..">
+                        </textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-default col-sm-2 border" [disabled]="!(myForm.valid)"
+                (click)="onSave()">Save</button>
+            </div>
+          </div>
+
+          <div *ngIf="status === 'factsAboutTrainedData'">
+            <div class="tab-pane fade" id="trainedFact2" role="tabpanel" aria-labelledby="trainedFact2-tab">
+              <div class="container-fluid container-bg">
+                <h3>Facts About Trained Model(s)</h3>
+                <div class="row" style="padding-left: 15px; padding-right: 0px;">
+                  <div class="col-sm-4 fullHeight border border-light" id="card-bg" style="height: 550px">
+                    <h5>Quantitive Analysis</h5>
+                    <span>General Description</span>
+                    <textarea type="text" id="overflow" style="height: 150px; border: none;"
+                      formControlName="generalDescription" required maxlength="750" placeholder="write something.."></textarea>
+                    
+                      <div class="row" style="overflow-y: auto; height:300px;">
+                      <input type='file' id="files" class="form-control" (change)="detectFiles($event)" multiple
+                        accept="image/x-png,image/jpeg" style="background: rgba(44, 44, 189, 0.739); color: white;">
+                      <table style="width:90px; overflow-y: auto; height:100px; overflow-y: scroll; border: none;">
+                        <div class="images-preview" *ngIf="photos.length"
+                          style="width:384px; overflow-y: scroll; height:100px; border: none;height: 300px;">
+                          <tr class="col-md-6 col-lg-3	 col-xl-2" formArrayName="photos" 
+                            *ngFor="let photo of photos.controls; let i = index;">
+                            <div class="card mb-3" [formGroupName]="i">
+                              <button type="button" (click)="removePhoto(i)" style="width: 50px; margin-left: 333px;"
+                                class="btn btn-danger remove-btn">x</button>
+                              <td> <img *ngIf="photo" [src]="photo?.get('fileUrl')?.value" class="card-img-top"
+                                  alt="Image Preview"></td>
+
+                              <td> <textarea type="text" placeholder="write something about image.."
+                                  formControlName="fileDescription"
+                                  style="height: 122px; border: red; margin-bottom: none; width: 384px;"></textarea>
+                              </td>
+                            </div>
+                          </tr>
+                        </div>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col" style="margin-right: -50px;">
+                    <div class="row" id="card-height1">
+                      <div class="col-sm-6 border" id="card-bg">
+                        <h5>Factors</h5>
+                        <textarea type="text" id="overflow" required maxlength="1500" style="height: 230px;" formControlName="factors"
+                          placeholder="write something.."></textarea>
+                      </div>
+                      <div class="col-sm-5 border" id="card-bg">
+                        <h5>Metrics</h5>
+                        <textarea type="text" id="overflow" required maxlength="1500" style="height: 230px;" formControlName="metrics"
+                          placeholder="write something.."></textarea>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 210px;">
+                      <div class="col-sm-5 border" id="card-bg">
+                        <h5>Model Details</h5>
+                        <textarea type="text" id="overflow" required maxlength="1500" style="height: 180px;" formControlName="modelDetail"
+                          placeholder="write something.."></textarea>
+                      </div>
+                      <div class="col-sm-6 border" id="card-bg">
+                        <h5>Explainability/Transparency</h5>
+                        <textarea type="text" id="overflow" required maxlength="1500" style="height: 180px;" formControlName="explainability"
+                          placeholder="write something.."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-default col-sm-2 border" [disabled]="(!(myForm.valid) && !(myForm.controls.valid))" (click)="onSave()">Save</button>
+            </div>
+          </div>
+
+          <div *ngIf="status === 'ethicalEffects'">
+            <div class="tab-pane fade" id="ethicalEffect2" role="tabpanel" aria-labelledby="ethicalEffect-tab">
+              <div class="container-fluid container-bg" style="color: azure;">
+                <h3>Ethical Effects</h3>
+                <div class="container-fluid" id="card-bg">
+                  <div class="row">
+                    <div class="col-sm-4 fullHeight border border-light" id="card-bg">
+                      <h5>Effects</h5>
+                      <span>1-Individuals</span> <br>
+                      <span>2-Collective-Groups</span>
+                      <textarea type="text" id="overflow" style="height: 430px;" required maxlength="1500" formControlName="effects"></textarea>
+                    </div>
+                    <div class="col">
+                      <div class="row" id="card-height1">
+                        <div class="col-7 border" id="card-bg">
+                          <h5>Economical</h5>
+                          <textarea type="text" id="overflow" style="height: 230px;" required maxlength="1500" formControlName="economical"
+                            placeholder="write something.."></textarea>
+                        </div>
+                        <div class="col-5 border" id="card-bg">
+                          <h5>Environmental</h5>
+                          <textarea type="text" id="overflow" style=" height: 230px;" required maxlength="1500"  formControlName="environmental"
+                            placeholder="write something.."></textarea>
+                        </div>
+                      </div>
+                      <div class="row card-height">
+                        <div class="col-5 border" id="card-bg">
+                          <h5>Pitfalls and Side Effects</h5>
+                          <textarea type="text" id="overflow" style="height: 180px;" required maxlength="1500"  formControlName="pitfalls"
+                            placeholder="write something.."></textarea>
+                        </div>
+                        <div class="col-7 border" id="card-bg">
+                          <h5>Social</h5>
+                          <textarea type="text" id="overflow" style="height: 180px;" required maxlength="1500" formControlName="social"
+                            placeholder="write something.."></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-default col-sm-2 border border-light" [disabled]="!(myForm.valid)" (click)="onSave()">Save</button>
+            </div>
+          </div>
+
+          <div *ngIf="status === 'ethicalImpact'">
+            <div class="tab-pane fade" id="ethicalImpact2" role="tabpanel" aria-labelledby="ethicalImpact-tab">
+              <div class="container-fluid container-bg" style="color: azure;">
+                <h3>Ethical Impacts</h3>
+                <div class="container-fluid" style="height: 550px;">
+                  <div class="row">
+                    <div class="col height border border-light" id="card-bg">
+                      <div class="row border border-light" style="height: 268px;">
+                        <h5>Micro</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 200px;"
+                          formControlName="micro" placeholder="write something.."></textarea>
+                      </div>
+                      <div class="row border border-light" style="height: 270px;">
+                        <h5>Macro</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 200px;"
+                          formControlName="macro" placeholder="write something.."></textarea>
+                      </div>
+                    </div>
+                    <div class="col height border border-light" id="card-bg">
+                      <div class="row border border-light" style="height: 310px;">
+                        <h5>Uncontrollable Aspects</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 220px;"
+                          formControlName="uncontrollableAspects" placeholder="write something.."></textarea>
+                      </div>
+                      <div class="row border border-light" style="height: 228px;">
+                        <h5>Fairness</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 160px;"
+                          formControlName="fairness" placeholder="write something.."></textarea>
+                      </div>
+                    </div>
+                    <div class="col height border border-light" id="card-bg">
+                      <div class="row border border-light" style="height: 268px;">
+                        <h5>Safety</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 200px;"
+                          formControlName="safety" placeholder="write something.."></textarea>
+                      </div>
+                      <div class="row border border-light" style="height: 270px;">
+                        <h5>Privacy</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 200px;"
+                          formControlName="privacy" placeholder="write something.."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-default col-sm-2 border border-light" [disabled]="!(myForm.valid)" (click)="onSave()">Save</button>
+            </div>
+          </div>
+
+          <div *ngIf="status === 'recommendation'">
+            <div class="tab-pane fade" id="recommendation2" role="tabpanel" aria-labelledby="recommendation-tab">
+              <div class="container-fluid container-bg">
+                <h3>Recommendation</h3>
+                <div class="container-fluid" style="height: 550px;">
+                  <div class="row" style="width: 1150px;">
+                    <div class="col-sm-4 fullHeight border border-light" id="card-bg">
+                      <h5>Ethical Recommendation</h5>
+                      <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 480px;"
+                        formControlName="ethicalRecommendation" placeholder="write something.."></textarea>
+                    </div>
+                    <div class="col-sm-3 fullHeight border border-light" id="card-bg">
+                      <h5>Exceptions</h5>
+                      <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 480px;"
+                        formControlName="exception" placeholder="write something.."></textarea>
+                    </div>
+                    <div class="col-sm-5 fullHeight border border-light" id="card-bg">
+                      <div class="row border border-light" style="height: 315px;">
+                        <h5>Policy Development Consideration</h5>
+                        <textarea type="text" class="textarea" id="overflow" required maxlength="1500" style="height: 220px;"
+                          formControlName="policyDevelopment" placeholder="write something.."></textarea>
+                      </div>
+                      <div class="row border border-light" id="card-bg" style="height: 235px;">
+                        <h5>Needs Of Regulation</h5>
+                        <textarea type="text" class="textarea" required maxlength="1500" id="overflow" style="height: 150px;"
+                          formControlName="needsOfRegulation" placeholder="write something.."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-default col-sm-2 border border-dark" [disabled]="!(myForm.valid)" (click)="onSave()">Save</button>
+                </div>
+                <div class="col">
+                  <button class="btn border border-dark"[disabled]="!(myForm.valid)" (click)="onSubmit(myForm)">Generate PDF</button>
+                </div>
+                <div class="col">
+                  <button class="btn border border-dark" [disabled]="!(myForm.valid)"  (click)="download()">Download pdf</button>
+                </div>
+                <!--
+                <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" (click)="onSubmit(myForm)" role="tab"
+                aria-controls="home" aria-selected="false">Generate Report</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
+
+<!--- end tab section-->
+<div class="card2 fixed-bottom text-center">
+  <div class="card-header1">© Hitachi America, Ltd 2021.
+    All
+    rights
+    reserved.
+  </div>
+</div>

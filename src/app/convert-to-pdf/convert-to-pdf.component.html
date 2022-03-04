@@ -1,0 +1,140 @@
+<!-- <div class="container">
+<div id="pdfTable" #pdfTable>
+<h2>Html to PDF</h2>
+<table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sam</td>
+              <td>Sam</td>
+              <td>tutsmake.com</td>
+            </tr>
+            <tr>
+              <td>john</td>
+              <td>dam</td>
+              <td>w3school.com</td>
+            </tr>
+            <tr>
+              <td>jonhy</td>
+              <td>hid</td>
+              <td>geeks.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
+    </div> -->
+
+<!-- <p>DateTime as Milliseconds : {{todayNumber}}
+  datepipe:{{todayNumber | date}}</p>
+<p>DateTime as object : {{todayDate}}
+  datepipe:{{todayDate | date}}</p>
+<p>DateTime as string : {{todayString}}
+  datepipe:{{todayString | date}}</p>
+<p>DateTime as iso string : {{todayISOString}}
+  datepipe:{{todayISOString | date}}</p>
+<p>DateTime as UTC : {{todayDate}}
+  datepipe:{{todayDate | date: 'fullTime' : 'UTC'}}
+</p> -->
+<!--
+<div class="col-sm-6">
+  <form [formGroup]="myForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label>Email address</label>
+      <input required type="email"
+        [ngClass]="(myForm.get('email')?.touched || myForm.get('email')?.dirty) &&
+        myForm.get('email')?.hasError('required') ? 'is-invalid' : '' "
+        formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" required
+        [ngClass]="(myForm.get('password')?.touched || myForm.get('password')?.dirty) &&
+        myForm.get('password')?.hasError('required') ? 'is-invalid' : '' "
+        formControlName="password">
+    </div>
+
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input type="text" required [ngClass]="(myForm.get('name')?.touched || myForm.get('name')?.dirty) && myForm.get('name')?.hasError('required') ? 'is-invalid' : '' " formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="UserName">User Name</label>
+      <input type="text" required [ngClass]="(myForm.get('username')?.touched || myForm.get('username')?.dirty) && myForm.get('username')?.hasError('required') ? 'is-invalid' : '' " formControlName="username">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" required [ngClass]="(myForm.get('address')?.touched || myForm.get('address')?.dirty) && myForm.get('address')?.hasError('required') ? 'is-invalid' : '' " formControlName="address">
+    </div>
+
+    <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+ -->
+
+
+
+<!-- <img *ngFor='let url of urls'  [src]="url" height="200"> <br/>
+
+<input type='file' (change)="onSelectFile($event)" multiple> -->
+
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+      <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <input type="file" class="custom-file-input form-control" id="files" multiple (change)="detectFiles($event)" accept="image/x-png,image/jpeg">
+        </div>
+
+        <div class="images-preview mt-2" *ngIf="photos.length">
+          <div class="row">
+            <div class="col-md-6 col-lg-3	 col-xl-2" formArrayName="photos" *ngFor="let photo of photos.controls; let i = index;">
+              <div class="card mb-3" [formGroupName]="i">
+                <button type="button" (click)="removePhoto(i)" class="btn btn-danger remove-btn">x</button>
+                <img [src]="photo.controls.url.value" class="card-img-top" alt="Image Preview">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+
+<form [formGroup]="demoForm">
+
+  <div class="form-group">
+      <input type="file" class="custom-file-input form-control" id="files" multiple (change)="detectFiles($event)"
+          accept="image/x-png,image/jpeg">
+  </div>
+
+  <div class="images-preview mt-2" *ngIf="photos.length">
+      <div class="row">
+          <div class="col-md-6 col-lg-3	 col-xl-2" formArrayName="photos"
+              *ngFor="let photo of photos.controls; let i = index;">
+              <div class="card mb-3" [formGroupName]="i">
+                  <button type="button" (click)="removePhoto(i)" class="btn btn-danger remove-btn">x</button>
+                  <img *ngIf="photos" [src]="photos?.get('fileUrl')?.value"  class="card-img-top" alt="Image Preview" formControlName="fileUrl">
+                  <input type="text" formControlName="fileDescription">
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <button class="btn btn-primary" (click) ="Submit()">Submit</button>
+</form>

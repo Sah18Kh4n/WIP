@@ -1,0 +1,96 @@
+<div *ngIf="formInput">
+  <form [formGroup]="formInput" class="row g-3 needs-validation">
+    <div style="width:100%; margin:0px auto;">
+      <div
+        style="border:1px solid #000; color: whitesmoke; width:270px; background-color: rgb(26, 26, 65); padding-right: 10px; word-wrap:break-word; font-size: small;">
+        <p class="eachQuestion mt-0 ml-3 ">{{formInput?.get('question')?.value}}</p>
+      </div>
+
+      <div class="was-validated">
+        <div class="options-select">
+          <select class="browser-default custom-select" [ngClass]="(formInput.get('datacollection')?.touched || formInput.get('datacollection')?.dirty) && formInput.get('datacollection')?.hasError('required') ? 'is-invalid' : '' "
+            formControlName="datacollection" required>
+            <option disabled [value]="">--select--</option>
+            <option class="option" value="Low">Low</option>
+            <option class="option" value="Fair">Fair</option>
+            <option class="option" value="Good">Good</option>
+            <option class="option" value="High">High</option>
+            <option class="option" value="Very High">Very High</option>
+          </select>
+          <!-- <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">
+          Please select a valid option.
+        </div> -->
+        </div>
+        <div class="options-select">
+          <select class="browser-default custom-select" [ngClass]="(formInput.get('datastorage')?.touched || formInput.get('datastorage')?.dirty) && formInput.get('datastorage')?.hasError('required') ? 'is-invalid' : '' "
+            formControlName="datastorage" required>
+            <option disabled [value]="">--select--</option>
+            <option class="option" value="Low">Low</option>
+            <option class="option" value="Fair">Fair</option>
+            <option class="option" value="Good">Good</option>
+            <option class="option" value="High">High</option>
+            <option class="option" value="Very High">Very High</option>
+          </select>
+          <!-- <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">
+            Please select a valid option.
+          </div> -->
+        </div>
+
+        <div class="options-select">
+          <select class="browser-default custom-select"  [ngClass]="(formInput.get('datapreparation')?.touched || formInput.get('datapreparation')?.dirty) && formInput.get('datapreparation')?.hasError('required') ? 'is-invalid' : '' " 
+            formControlName="datapreparation" required>
+            <option disabled [value]="">--select--</option>
+            <option class="option" value="Low">Low</option>
+            <option class="option" value="Fair">Fair</option>
+            <option class="option" value="Good">Good</option>
+            <option class="option" value="High">High</option>
+            <option class="option" value="Very High">Very High</option>
+          </select>
+          <!-- <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">
+          Please select a valid option.
+        </div> -->
+        </div>
+        <div class="options-select">
+          <select class="browser-default custom-select" [ngClass]="(formInput.get('modeldevelopment')?.touched || formInput.get('modeldevelopment')?.dirty) && formInput.get('modeldevelopment')?.hasError('required') ? 'is-invalid' : '' "
+            formControlName="modeldevelopment" required>
+            <option disabled [value]="">--select--</option>
+            <option class="option" value="Low">Low</option>
+            <option class="option" value="Fair">Fair</option>
+            <option class="option" value="Good">Good</option>
+            <option class="option" value="High">High</option>
+            <option class="option" value="Very High">Very High</option>
+          </select>
+          <!-- <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">
+          Please select a valid option.
+        </div> -->
+        </div>
+        <div class="options-select">
+          <select class="browser-default custom-select"  
+            formControlName="modeldeployment" required>
+            <option disabled [value]="">--select--</option>
+            <option class="option" value="Low">Low</option>
+            <option class="option" value="Fair">Fair</option>
+            <option class="option" value="Good">Good</option>
+            <option class="option" value="High">High</option>
+            <option class="option" value="Very High">Very High</option>
+          </select>
+          <!-- <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">
+          Please select a valid option.
+        </div> -->
+        </div>
+        <div style="border:1px solid #000; float:left; width:170px; padding-right: 10px;">
+          <textarea class="form-control is-invalid" id="validationTextarea" [ngClass]="(formInput.get('comments')?.touched || formInput.get('comments')?.dirty) && formInput.get('comments')?.hasError('required') ? 'is-invalid' : '' " formControlName="comments" maxlength="100" rows="2" placeholder="Type your comment.." required></textarea>
+        </div>
+        <!-- <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div> -->
+        <br>
+      </div>
+    </div><br>
+    <hr class="mt-4" style="border-color: whitesmoke;">
+  </form><br>
+</div>

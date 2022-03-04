@@ -1,0 +1,235 @@
+<nav class="navbar-top">
+  Dashboard (Ethic Report Generation)
+</nav>
+<div class="row p-0 m-0" style="background-color: rgb(1, 1, 53);">
+  <div class="col-sm-2 m-0 p-0" routerLink="/">
+    <ul class="nav nav-tabs" id="myTab3" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-vertical-tab" data-toggle="tab" href="#home-vertical" role="tab"
+          aria-controls="home" aria-selected="true">
+          <img class="card-img-left" src="../../assets/screenOneImg/report.png" alt="Card image cap">
+          <p class="card-text-left">Report Generation</p>
+        </a>
+      </li>
+      <li class="nav-item" routerLink="/screen2"> <a class="nav-link" id="home-vertical-tab" data-toggle="tab"
+          href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">
+          <img class="card-img-left" src="../../assets/screenOneImg/Metrics.png" alt="Card image cap">
+          <p class="card-text-left">Metrics and Tools Glossary</p>
+        </a> </li>
+      <li class="nav-item" routerLink="/screen3"> <a class="nav-link" id="home-vertical-tab" data-toggle="tab"
+          href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">
+          <img class="card-img-left" src="../../assets/screenOneImg/Risk.png" alt="Card image cap">
+          <p class="card-text-left">Risk Assessment</p>
+        </a> </li>
+      <li class="nav-item" routerLink="/screen4"> <a class="nav-link" id="home-vertical-tab" data-toggle="tab"
+          href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">
+          <img class="card-img-left" src="../../assets/screenOneImg/mdcs.png" alt="Card image cap">
+          <p class="card-text-left">Catalogue Dashboard</p>
+        </a> </li>
+    </ul>
+  </div>
+
+  <div class="col-sm-10 p-0 m-0 ">
+
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+      <li class="nav-item"><a class="nav-link active" id="safety-tab" data-toggle="tab" href="#safety2" role="tab"
+          aria-controls="home" aria-selected="true">Safety</a></li>
+      <li class="nav-item"><a class="nav-link" id="privacy-tab" data-toggle="tab" href="#privacy2" role="tab"
+          aria-controls="home" aria-selected="false">Privacy Protection</a></li>
+      <li class="nav-item"><a class="nav-link" id="fairness-tab" data-toggle="tab" href="#fairness2" role="tab"
+          aria-controls="contact" aria-selected="false">Fairness</a></li>
+      <li class="nav-item"><a class="nav-link" id="development-tab" data-toggle="tab" href="#development2" role="tab"
+          aria-controls="home" aria-selected="false">Proper development and utilization</a></li>
+      <li class="nav-item"><a class="nav-link" id="transparency-tab" data-toggle="tab" href="#transparency2" role="tab"
+          aria-controls="home" aria-selected="false">Transparency and Accountability</a></li>
+      <li class="nav-item"><a class="nav-link" id="security-tab" data-toggle="tab" href="#security2" role="tab"
+          aria-controls="home" aria-selected="false">Security</a></li>
+      <li class="nav-item"><a class="nav-link" id="legal-tab" data-toggle="tab" href="#legal2" role="tab"
+          aria-controls="home" aria-selected="false">Legal Compliance</a></li>
+    </ul>
+    <br>
+
+    <div *ngIf="form">
+    <form [formGroup]="form" class="tab-content mb-4">
+
+      <div class="tab-pane fade show active" id="safety2" role="tabpanel" aria-labelledby="home-tab">
+        <div class="instruction m-0 p-0" id="safety2" role="tabpanel" aria-labelledby="home-tab">
+          <p><i class="fa fa-info" aria-hidden="true"></i> Safety risks arising from the accuracy of Al Deterioration,
+            etc. are investigated, and necessary measures are taken.</p>
+        </div>
+        <ul class="nav nav-pills mb-3 ml-0" id="myTab" role="tablist">
+          <li class="nav-item " style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let safetyControles of safetyFormArray" required id="safety2" role="tabpanel" aria-labelledby="safety-tab">
+          <app-screen1-table [formInput]="safetyControles">
+          </app-screen1-table>
+          <!-- <span *ngIf="safetyControles.invalid && safetyControles.touched"></span> -->
+        </div>
+        <div class="text-center mt-4">
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3"
+            (click)="submitData(safety)">Save</button>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="privacy2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="instruction m-0 p-0" id="privacy2" role="tabpanel" aria-labelledby="profile-tab">
+          <p><i class="fa fa-info" aria-hidden="true"></i> Have Studied the risk of violating privacy and taken
+            necessary measures in the input/output data when learning and applying AI.</p>
+        </div>
+        <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+          <li class="nav-item" style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let privacyControles of privacyFormArray">
+          <app-screen1-table [formInput]="privacyControles">
+            </app-screen1-table>
+        </div>
+        <div class="text-center mt-4">
+          <button [disabled]="form.invalid" class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" 
+            (click)="submitData(privacy)">Save</button>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="fairness2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="instruction m-0 p-0">
+          <p><i class="fa fa-info" aria-hidden="true"></i> Have Studied the risk of AI Output being unfair prejudice,
+            inequality, discrimination, and taken the necessary measures.</p>
+        </div>
+        <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+          <li class="nav-item" style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let fairnessControles of fairnessFormArray">
+          <app-screen1-table [formInput]="fairnessControles">
+          </app-screen1-table>
+        </div>
+        <div class="text-center mt-4">
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" [disabled]="form.invalid"
+            (click)="submitData(fairness)">Save</button>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="development2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="instruction m-0 p-0">
+          <p><i class="fa fa-info" aria-hidden="true"></i> Have confirmed that it is not a technology that develops in
+            the assumption that it is used for an improper purpose such as compromising social value, environmental
+            value, and economic value</p>
+        </div>
+        <ul class="nav nav-pills mb-2" id="myTab" role="tablist">
+          <li class="nav-item" style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let developmentControles of developmentFormArray">
+          <app-screen1-table [formInput]="developmentControles">
+          </app-screen1-table>
+        </div>
+        <div class="text-center mt-4">
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" [disabled]="form.invalid"
+            (click)="submitData(development)">Save</button>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="transparency2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="instruction m-0 p-0">
+          <p><i class="fa fa-info" aria-hidden="true"></i> Have examined the risk that the whereabouts of the
+            responsibility becomes unclear or the control by a person is impossible, and take necessary measures,
+            because the operation, the behavior, and the contents of processing of AI are black-boxed.</p>
+        </div>
+        <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+          <li class="nav-item" style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let transparencyControles of transparencyFormArray">
+          <app-screen1-table [formInput]="transparencyControles">
+          </app-screen1-table>
+        </div>
+        <div class="text-center mt-4">
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" [disabled]="form.invalid"
+            (click)="submitData(transparency)">Save</button>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="security2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="instruction m-0 p-0">
+          <p><i class="fa fa-info" aria-hidden="true"></i> Have studied the security risks of information Leakage,
+            tampering, destruction of the system, obstruction of service, etc, and taken all the necessary precautions.
+          </p>
+        </div>
+        <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+          <li class="nav-item" style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let securityControles of securityFormArray">
+          <app-screen1-table [formInput]="securityControles">
+          </app-screen1-table>
+        </div>
+        <div class="text-center mt-4">
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" [disabled]="form.invalid"
+            (click)="submitData(security)">Save</button>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="legal2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="instruction m-0 p-0">
+          <p><i class="fa fa-info" aria-hidden="true"></i> In the countries and regions where AI is used, the use and
+            output of AI complies with the laws and regulations of the country or region.</p>
+        </div>
+        <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+          <li class="nav-item" style="width:270px;padding-right: 10px;">Questions</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Collection</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Storage</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Preparation</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Development</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Data Deployement</li>
+          <li class="nav-item" style="width:140px;padding-right: 10px;">Comments</li>
+        </ul>
+        <div *ngFor="let legalControles of legalFormArray">
+          <app-screen1-table [formInput]="legalControles">
+          </app-screen1-table>
+        </div>
+        <div class="text-center mt-4">
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" [disabled]="form.invalid"
+            (click)="submitData(legal)">Save</button>
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 mr-3" (click)="onSubmit(form)" role="tab"
+            aria-controls="home" aria-selected="false">Generate Report</button>
+          <button class="generateButton pt-1 pb-1 pl-2 pr-2 " (click)="download()">Download
+            Generated Report</button>
+        </div>
+      </div>
+
+
+      <div class="card1 mx-auto fixed-bottom"
+        style="height:20px;text-align: center; background-color: white; color: black; ">
+        <div class="card-header1" style="border-radius: 40px;font-size: 13px;">© Hitachi America, Ltd 2021. All
+          rights
+          reserved.</div>
+      </div>
+    </form>
+  </div>

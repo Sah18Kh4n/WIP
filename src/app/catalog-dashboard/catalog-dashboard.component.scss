@@ -1,0 +1,167 @@
+body{
+font-family: Arial, Helvetica, sans-serif;
+}
+.navbar-top{
+  height: 50px;
+  font-size: medium;
+  padding-top: 10px;
+  border-bottom: yellow;
+  background-color: rgb(1, 1, 53);
+  color: whitesmoke;
+  margin-bottom: 1px;
+}
+.card-img-left{
+ width: 90px;
+ height: 90px;
+ text-align: center;
+ margin-bottom: 10px;
+ margin-left: 45px;
+ margin-top: 10px;
+}
+.card-text-left{
+  text-align: center;
+  color: whitesmoke;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.tab-pane{
+width: 140%;
+color: azure;
+}
+.card2{
+  height:max-content;
+  background-color: white;
+}
+h3{
+  text-align: center;
+  height: 90%;
+}
+h5{
+  padding: 10px;
+}
+col-4{
+ border-style: solid;
+ border-width: thin;
+}
+#home-vertical-tab{
+ width: 220px;
+ height: 180px;
+ color: whitesmoke;
+ background-color: rgb(1, 1, 53);
+ padding-bottom: 6px;
+ border-bottom: 1px solid;
+ border-color: grey;
+}
+
+#home-vertical-tab.active {
+  color: whitesmoke;
+  background-color:rgb(84, 79, 112)
+}
+#myTab3{
+ height: 720px;
+ width: 221px;
+ border-right: 1px solid;
+ border-color: whitesmoke;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+ color: #fff;
+ background-color: rgb(1, 1, 53);
+}
+#myTab{
+ width: 140%;
+ background-color:rgb(84, 79, 112);
+ color: whitesmoke;
+ font-weight: 500;
+ font-size: 15px;
+ line-height: 40px;
+}
+
+a{
+ color: whitesmoke;
+}
+
+#overflow {
+  color: white;
+  width: 95%;
+  height: 520px;
+  overflow: scroll;
+  font-size: small;
+  font-weight: 300;
+  overflow-x: hidden;
+  background-color: rgba(44, 44, 189, 0.739);
+  border: none
+}
+#overflow1 {
+  color: white;
+  padding: 15px;
+  width: 100%;
+  height: 220px;
+  overflow: scroll;
+  font-size: small;
+  font-weight: 300;
+}
+.height{
+  height: 540px;
+}
+.fullHeight{
+  height: 550px;
+}
+.desc{
+  width: 50px;
+}
+.btn{
+  color: aliceblue;
+  margin-top: 5px;
+  margin-left: 40%;
+}
+.imageCol{
+  height: 100px;
+  width: 30px;
+}
+.container-bg{
+  background: rgb(84, 79, 112);
+}
+.input{
+  width: 100px;
+}
+.card3{
+  height: 180px;
+}
+.nav-width{
+  width: 900px;
+}
+.card-height{
+  height: 250px;
+}
+.card-header1{
+  border-radius: 40px;
+  font-size: 13px;
+  color: black;
+}
+#card-bg{
+  background-color: rgba(44, 44, 189, 0.739);
+}
+#card-height1{
+  height: 300px;
+}
+#container-bg{
+  background-color: rgb(1, 1, 53);
+}
+label{
+  font-size: large;
+  font-weight: bold;
+}
+.textarea{
+  margin-left: 10px;
+}
+
+
+
+table, th, td {
+  border: 1px solid;
+}
+th{
+  width: 10px;
+}
